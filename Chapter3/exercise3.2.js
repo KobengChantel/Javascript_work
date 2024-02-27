@@ -1,4 +1,4 @@
-//creating an empty list
+//creating an empty array
 let shopList = [];
 //adding items to empty list
  shopList.push = ("Milk", "Bread", "Apples");
@@ -10,12 +10,12 @@ console.log(removeLast);
 //sorting aplpahbetically
 shopList.sort();
 //finding index of milk and outpt
-console.log(shopList.IndexOf("Milk"));
+console.log(shopList.indexOf("Milk"));
 //addind carrot,lettuce after bananas
 shopList.splice(1, 0, "Carrots", "Lettuce");
 //creating a new list
 let newList =["Juice,", "Pop"]
-let shoppingLists = shopList.concat  (newList, newList);
+let shoppingLists = shopList.concat(newList, newList);
 console.log(shoppingLists);
 //find index for pop
 console.log(newList.lastIndexOf("Pop"));
