@@ -1,6 +1,6 @@
 
 // variable that gets a random number
-const randomNumber = Math.floor(Math.random() * 5);
+const randomNumber = Math.floor(Math.random() * 6);
 // a string input to repeat the back the final output
 let answer = "Something went wrong";
 let question = prompt("Ask me anything");
@@ -22,3 +22,4 @@ switch (randomNumber) {
         answer = "I don't know about that";
 }
 let output = "You asked me " + question + ". I think that " + answer;
+console.log(output);
