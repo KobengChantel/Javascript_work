@@ -1,15 +1,8 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    
-    <title>Variable With A Boolean Value</title>
-</head>
-<body>
-    
+  //Variable With A Boolean Value
 
-<script>
+
 // //a variable with a Boolean value
-// const learners = false;
+// const learners = true;
 // // value of the variable and whether the variable is true
 // console.log(learners);
 // if(learners){
@@ -28,13 +21,10 @@ const learners = false;
 // value of the variable and whether the variable is true
 console.log(learners);
 if(learners){
-    console.log("It's false");
+    console.log("It's true");
 }
 
 //statement with an ! in front of the variable to check whether the condition is not true,
 if(!learners){
-    console.log("true now");
+    console.log("false now");
 }
-</script>
-</body>
-</html>
