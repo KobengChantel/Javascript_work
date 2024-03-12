@@ -1,0 +1,48 @@
+<!doctype html>
+<html>
+<head>
+    <title>Exercise 1.4</title>
+</head>
+<h1> change the background color of the element on the page as the various 
+    mouse events occur</h1>
+<body> 
+    <div class="output"></div> 
+    <script>        
+       // Selecting the output element
+const output = document.querySelector(".output");
+
+// Setting initial text content, height, width, and background color for the output element
+output.textContent = "hello world";
+output.style.height = "200px";
+output.style.width = "400px";
+output.style.backgroundColor = "red";
+
+// Adding event listener to handle mousedown event
+output.addEventListener("mousedown", function (e) {
+    message("green", e); // Calling the message function with "green" color and event object
+});
+
+// Adding event listener to handle mouseover event
+output.addEventListener("mouseover", function (e) {
+    message("red", e); // Calling the message function with "red" color and event object
+});
+
+// Adding event listener to handle mouseout event
+output.addEventListener("mouseout", function (e) {
+    message("yellow", e); // Calling the message function with "yellow" color and event object
+});
+
+// Adding event listener to handle mouseup event
+output.addEventListener("mouseup", function (e) {
+    message("blue", e); // Calling the message function with "blue" color and event object
+});
+
+// Function to handle message display and background color change
+function message(elColor, event) {
+    console.log(event.type); // Logging the type of event (mousedown, mouseover, mouseout, mouseup)
+    output.style.backgroundColor = elColor; // Changing the background color of the output element
+}
+
+    </script>
+</body>
+</html>

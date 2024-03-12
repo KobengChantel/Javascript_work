@@ -1,0 +1,99 @@
+<!doctype html>
+<html>
+<head>
+    <title>JavaScript Course</title>
+    <style>
+        .hide {
+            display: none;
+        }
+        .error {
+            color: red;
+            font-size: 0.8em;
+            font-family: sans-serif;
+            font-style: italic;
+        }
+        input {
+            border-color: #ddd;
+            width: 400px;
+            display: block;
+            font-size: 1.5em;
+        }
+    </style>
+</head>
+<body>
+    <form name="myform"> Email:
+        <input type="text" name="email"> <span class="error hide"></span>
+        <br> Password:
+        <input type="password" name="password"> <span class="error hide"></span>
+        <br> Username:
+        <input type="text" name="userName"> <span class="error hide"></span>
+        <br>
+        <input type="submit" value="Sign Up"> </form>
+    <script>
+        // Get a reference to the form element
+const myForm = document.querySelector("form");
+// Get references to all input elements within the form
+const inputs = document.querySelectorAll("input");
+// Get references to all elements with the class "error"
+const errors = document.querySelectorAll(".error");
+// Define an array of required fields
+const required = ["email", "userName"];
+
+// Add an event listener for the form submission
+myForm.addEventListener("submit", validation);
+
+// Function to handle form validation
+function validation(e) {
+    // Object to store form data
+    let data = {};
+    // Prevent the default form submission behavior
+    e.preventDefault();
+    // Hide all error messages initially
+    errors.forEach(function (item) {
+        item.classList.add("hide");
+    });
+    // Initialize error flag
+    let error = false;
+    // Loop through each input element
+    inputs.forEach(function (el) {
+        let tempName = el.getAttribute("name");
+        if (tempName != null) {
+            el.style.borderColor = "#ddd";
+            // Check if the input is empty and it's a required field
+            if (el.value.length == 0 && required.includes(tempName)) {
+                addError(el, "Required Field", tempName);
+                error = true;
+            }
+            // Validate email format
+            if (tempName == "email") {
+                let exp = /([A-Za-z0-9._-]+@[A-Za-z0-9._-]+\.[A-Za-z0-9]+)\w+/;
+                let result = exp.test(el.value);
+                if (!result) {
+                    addError(el, "Invalid Email", tempName);
+                    error = true;
+                }
+            }
+            // Validate password format
+            if (tempName == "password") {
+                let exp = /[A-Za-z0-9]+$/;
+                let result = exp.test(el.value);
+                if (!result) {
+                    addError(el, "Only numbers and Letters", tempName);
+                    error = true;
+                }
+                if (!(el.value.length > 3 && el.value.length < 9)) {
+                    addError(el, "Needs to be between 3-8 characters", tempName);
+                    error = true;
+                }
+            }
+            // Store input values in the data object
+            data[tempName] = el.value;
+        }
+    });
+    // If no errors, submit the form
+    if (!error) 
+        myForm.submit();
+}
+    </script>
+    </body>
+    </html>

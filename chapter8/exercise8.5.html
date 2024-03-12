@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>replace() string method</title>
+</head>
+<body>
+  
+
+<script>
+  
+// Define a string
+const word = " I love JavaScript";
+
+// Convert the string to lowercase using toLocaleLowerCase()
+const make = word.toLocaleLowerCase();
+console.log(make);
+
+// Define an array containing vowels
+const vowels = ["a", "e", "i", "o", "u"];
+
+// Iterate over each vowel in the vowels array using forEach() method
+vowels.forEach((letter, index) => {
+    // Output each vowel
+    console.log(letter);
+
+    // Replace each occurrence of the vowel in the word with its index
+    str = word.replaceAll(letter, index);
+});
+
+// Output the modified word after replacing vowels with their indices
+console.log(str);
+
+
+
+
+</script>
+
+
+</body>
+</html>

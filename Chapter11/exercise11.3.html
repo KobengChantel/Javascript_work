@@ -1,0 +1,27 @@
+
+<!doctype html>
+<html>
+<head>
+    <title>JS Tester</title>
+</head>
+<body>   
+    <script>        
+       // Adding event listener to the document for DOMContentLoaded event
+document.addEventListener("DOMContentLoaded", (e) => {
+    message("Document ready", e); // Calling the message function when the DOM content is loaded
+});
+
+// Assigning a function to the window's onload event
+window.onload = (e) => {
+    message("Window ready", e); // Calling the message function when the window is fully loaded
+}
+
+// Function to handle message display
+function message(val, event) {
+    console.log(event); // Logging the event object
+    console.log(val); // Logging the message value
+}
+
+    </script>
+</body>
+</html>

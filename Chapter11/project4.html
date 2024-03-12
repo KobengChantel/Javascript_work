@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Box Clicker Speed Test Game</title>
+    <style>
+       
+       
+        .output {
+            width: 500px;
+            height: 500px;
+            border: 1px solid black;
+            margin: auto;
+            text-align: center;
+        }
+
+        .box {
+            width: 50px;
+            height: 50px;
+            position: relative;
+            top: 50px;
+            left: 20%;
+            background-color: red;
+        }
+
+        .message {
+            text-align: center;
+            padding: 10px;
+            font-size: 1.3em;
+        }
+    </style>
+</head>
+<body>
+    <div class="output"></div>
+
+    
+    <div class="message"></div>
+
+   
+    <script>
+        // Selecting output and message elements
+        const output = document.querySelector('.output');
+        const message = document.querySelector('.message');
+
+        // Setting initial message
+        message.textContent = "Press to Start";
+
+        // Creating box element
+        const box = document.createElement('div');
+
+        // Game object to store timer and start time
+        const game = {
+            timer: 0,
+            start: null
+        };
+
+        // Adding CSS class to box element and appending it to output container
+        box.classList.add('box');
+        output.append(box);
+
+        // Event listener for box click
+        box.addEventListener('click', (e) => {
+            // Clearing box content and hiding box
+            box.textContent = "";
+            box.style.display = 'none';
+
+            // Setting timer to add new box after random time
+            game.timer = setTimeout(addBox, ranNum(3000));
+
+            // Checking if game has started
+            if (!game.start) {
+                message.textContent = 'Loading....';
+            } else {
+                // Calculating time taken to click
+                const cur = new Date().getTime();
+                const dur = (cur - game.start) / 1000;
+                message.textContent = `It took ${dur} seconds to click`;
+            }
+        });
+
+        // Function to add new box
+        function addBox() {
+            // Setting message to prompt user to click
+            message.textContent = 'Click it...';
+
+            // Setting start time of the game
+            game.start = new Date().getTime();
+
+            // Showing box and setting its position
+            box.style.display = 'block';
+            box.style.left = ranNum(450) + 'px';
+            box.style.top = ranNum(450) + 'px';
+        }
+
+        // Function to generate random number
+        function ranNum(max) {
+            return Math.floor(Math.random() * max);
+        }
+    </script>
+</body>
+</html>

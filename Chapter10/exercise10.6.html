@@ -1,0 +1,31 @@
+<!doctype html>
+<html>
+<head>
+    <title>JS Tester</title>
+</head>
+<body>
+    <div class="container">
+        <!-- Five div elements with the class "myEle" -->
+        <div class="myEle">One</div>
+        <div class="myEle">Two</div>
+        <div class="myEle">Three</div>
+        <div class="myEle">Four</div>
+        <div class="myEle">Five</div>
+    </div>
+    
+    <script>
+        // Select all elements with the class "myEle"
+        const eles = document.querySelectorAll(".myEle");
+    
+        // Log the NodeList containing all selected elements
+        console.log(eles);
+    
+        // Loop through each element in the NodeList
+        eles.forEach((el) => {
+            console.log(el); // Log each element
+        });
+    </script>
+    
+    </script>
+</body>
+</html>

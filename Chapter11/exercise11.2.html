@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <h1>Changing colors</h1>
+  <div>Pink</div>
+  <div>lightBlue</div>
+  <div>purple</div>
+  <div>red</div>
+  <div>yellow</div>
+  <script>
+
+// Select all the div elements on the page
+const divs = document.querySelectorAll("div");
+
+// Iterate over each div element
+divs.forEach((el) => {
+    // Add a click event listener to each div
+    el.addEventListener("click", () => {
+        // When a div is clicked, set the background color of the body to the text content of the clicked div
+        document.body.style.backgroundColor = el.textContent;
+    });
+});
+
+
+</script>
+</body>
+</html>

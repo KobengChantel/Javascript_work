@@ -1,0 +1,31 @@
+<!doctype html>
+<html>
+<head>
+    <title>JS Tester</title>
+</head>
+<body>
+    <div>
+        <!-- Three buttons -->
+        <button>Button 1</button>
+        <button>Button 2</button>
+        <button>Button 3</button>
+    </div>
+    
+    <script>
+        // Select all button elements
+        const btns = document.querySelectorAll("button");
+    
+        // Add event listener to each button
+        btns.forEach((btn)=>{
+            // Function to output the text content of the clicked button
+            function output(){
+                console.log(this.textContent); // Log the text content of the clicked button
+            }
+            btn.addEventListener("click",output); // Add click event listener to the button
+        });
+    </script>
+    
+    </script>
+
+</body>
+</html>

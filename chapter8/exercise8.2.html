@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Remove duplicates from the array using filter() and indexOf()</title>
+</head>
+<body>
+  <script>
+
+// Define an array containing names of people
+const peopleNames = ["Laurence", "Chantel", "Mike", "Larry", "Kim", "Joanne", "Kat", "Laurence", "Mike", "Kat", "Laurence", "Mike", "Chantel", "Laurence", "Mike"];
+
+// Use the filter() method to remove duplicate names from the array
+const peoplesNames1 = peopleNames.filter((value, index, array) => {
+  // Output each value, its index, and the index of its first occurrence in the array
+  console.log(value, index, array.indexOf(value));
+  
+  // Return true only if the current index of the value is equal to the index of its first occurrence
+  return array.indexOf(value) === index;
+});
+
+// Output the filtered array containing unique names
+console.log(peoplesNames1);
+
+
+  </script>
+
+
+</body>
+</html>

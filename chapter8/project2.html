@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Countdown timer</title>
+</head>
+<body>
+  
+
+<script>
+// Define the end date for the countdown
+const endDate = "Sept 1 2022";
+
+// Function to calculate the countdown
+function countdown() {
+    // Calculate the total milliseconds between the end date and the current date
+    const total = Date.parse(endDate) - new Date();
+
+    // Calculate the number of days remaining
+    const days = Math.floor(total / (1000 * 60 * 60 * 24));
+
+    // Calculate the number of hours remaining
+    const hrs = Math.floor((total / (1000 * 60 * 60)) % 24);
+
+    // Calculate the number of minutes remaining
+    const mins = Math.floor((total / 1000 / 60) % 60);
+
+    // Calculate the number of seconds remaining
+    const secs = Math.floor((total / 1000) % 60);
+
+    // Return an object containing the countdown values
+    return {
+        days,
+        hrs,
+        mins,
+        secs
+    };
+}
+
+// Function to update the countdown display
+function update() {
+    // Call the countdown function to get the countdown values
+    const temp = countdown();
+
+    // Initialize an empty string to store the output
+    let output = "";
+
+    // Iterate through the properties of the countdown object
+    for (const property in temp) {
+        // Concatenate each property and its corresponding value to the output string
+        output += (`${property}: ${temp[property]} `);
+    }
+
+    // Output the countdown values to the console
+    console.log(output);
+
+    // Call the update function again after 1 second using setTimeout
+    setTimeout(update, 1000);
+}
+
+// Call the update function to start the countdown
+update();
+
+</script>
+
+</body>
+</html>

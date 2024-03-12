@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Word scrambler</title>
+</head>
+<body>
+  <script>
+  
+// Define a string to scramble
+let str = "HappySoul";
+
+// Define a function to scramble the characters of a string
+function scramble(val) {
+    // Get the length of the input string
+    let max = val.length;
+    
+    // Initialize an empty string to store the scrambled result
+    let temp = "";
+    
+    // Loop through each character of the input string
+    for (let i = 0; i < max; i++) {
+        // Output the length of the remaining characters in the input string
+        console.log(val.length);
+        
+        // Generate a random index within the range of the input string
+        let index = Math.floor(Math.random() * val.length);
+        
+        // Add the character at the randomly selected index to the temporary string
+        temp += val[index];
+        
+        // Output the current state of the temporary string
+        console.log(temp);
+        
+        // Remove the character at the randomly selected index from the input string
+        val = val.substr(0, index) + val.substr(index + 1);
+        
+        // Output the remaining characters in the input string after removal
+        console.log(val);
+    }
+    
+    // Return the scrambled string
+    return temp;
+}
+
+// Call the scramble function with the input string and output the result
+console.log(scramble(str));
+
+
+
+</script>
+</body>
+</html>

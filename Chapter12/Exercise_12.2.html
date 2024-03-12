@@ -1,0 +1,52 @@
+<!doctype html>
+<html>
+<head>
+    <title>JavaScript Course</title>
+</head>
+<body>
+    <div class="output"></div>
+    <input type="text" placeholder="Enter Email">
+    <button>Check</button>
+    <script>
+       // Get reference to the output element with class "output"
+const output = document.querySelector(".output");
+// Get reference to the input element for email
+const emailVal = document.querySelector("input");
+// Get reference to the button element
+const btn = document.querySelector("button");
+// Regular expression to validate email format
+const emailExp = /([A-Za-z0-9._-]+@[A-Za-z0-9._-]+\.[A-Za-z0-9]+)\w+/;
+
+// Add click event listener to the button
+btn.addEventListener("click", (e) => {
+    // Get the value from the email input field
+    const val = emailVal.value;
+    // Test the value against the regular expression
+    const result = emailExp.test(val);
+    let response = "";
+
+    // If the value doesn't match the regular expression
+    if (!result) {
+        // Set response message to "Invalid Email"
+        response = "Invalid Email";
+        // Set output text color to red
+        output.style.color = "red";
+    } else {
+        // If the value matches the regular expression
+        // Set response message to "Valid Email"
+        response = "Valid Email";
+        // Set output text color to green
+        output.style.color = "green";
+    }
+
+    // Clear the value in the email input field
+    emailVal.value = "";
+    // Update the text content of the output element with the response message
+    output.textContent = response;
+});
+
+        
+    </script>
+
+</body>
+</html>

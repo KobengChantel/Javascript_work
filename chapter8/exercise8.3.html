@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title> array map() method</title>
+</head>
+<body>
+  <script>
+    
+// Define an array of numbers
+const num = [1, 5, 39, 87, 34, 10, 1, 0, 100];
+
+// Use the map() method to create a new array where each element is doubled
+const mapped_arr = num.map(function(numb) {
+  return numb * 2;
+});
+
+// Output the new array
+console.log(mapped_arr);
+
+// Use the map() method with arrow function syntax to create a new array where each element is doubled
+const num2 = num.map((numb) => numb * 2);
+
+// Output the new array
+console.log(num2);
+
+
+  </script>
+</body>
+</html>

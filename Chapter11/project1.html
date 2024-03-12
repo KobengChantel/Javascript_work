@@ -1,0 +1,45 @@
+<!doctype html >
+<html>
+<head>
+    <title>Building Your Own Analytics</title>
+    <style>.box{width:200px;height:100px;border:1px solid black}</style>
+</head>
+<body> 
+    <div class="container">
+        <div class="box" id="box0">Box #1</div>
+        <div class="box" id="box1">Box #2</div>
+        <div class="box" id="box2">Box #3</div>
+        <div class="box" id="box3">Box #4</div>
+    </div> 
+    <script>      
+       // Array to store tracked elements
+const counter = [];
+
+// Selecting the container element
+const main = document.querySelector(".container");
+
+// Adding event listener to the container for tracking clicks
+main.addEventListener("click", tracker);
+
+// Function to track clicks on elements
+function tracker(e) {
+    // Getting the clicked element
+    const el = e.target;
+
+    // Checking if the clicked element has an id
+    if (el.id) {
+        // Creating an object to store information about the clicked element
+        const temp = {};
+        temp.content = el.textContent; // Getting the text content of the clicked element
+        temp.id = el.id; // Getting the id of the clicked element
+        temp.tagName = el.tagName; // Getting the tag name of the clicked element
+        temp.class = el.className; // Getting the class name(s) of the clicked element
+        console.dir(el); // Logging the clicked element to console
+        counter.push(temp); // Adding the information object to the counter array
+        console.log(counter); // Logging the counter array to console
+    }
+}
+
+    </script>
+</body>
+</html>

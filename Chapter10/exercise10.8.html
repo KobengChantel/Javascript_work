@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Complete JavaScript Course</title>
+</head>
+<body>
+    <div id="message"></div> <!-- Placeholder for displaying messages -->
+<div id="output"></div> <!-- Placeholder for the friends table -->
+
+<script>
+    // Select the message div
+    const message = document.querySelector("#message");
+
+    // Array of friends' names
+    const myArray = ["Laurence", "Mike", "John", "Larry", "Kim", "Joanne", "Lisa", "Janet", "Jane"];
+    build();
+
+    // Function to build the friends table
+    function build() {
+        let html = "<h1>My Friends Table</h1><table>"; // Initial HTML for the table
+        // Loop through each friend in the array
+        myArray.forEach((item, index) => {
+            // Add row to the table with data attributes for index and name, and onclick event
+            html += `<tr class="box" data-row="${index + 1}" data-name="${item}" onclick="getData(this)"><td>${item}</td>`;
+            html += `<td>${index + 1}</td></tr>`; // Add cell for the index
+        });
+        html += "</table>"; // Close the table
+        document.getElementById("output").innerHTML = html; // Set the HTML content of the output div
+    }
+
+    // Function to get data from a clicked row
+    function getData(el) {
+        let temp = el.getAttribute("data-row"); // Get the value of the data-row attribute
+        let tempName = el.getAttribute("data-name"); // Get the value of the data-name attribute
+        message.innerHTML = `${tempName} is in row #${temp}`; // Display the message with the name and row number
+    }
+</script>
+
+    </script>
+
+</body>
+</html>

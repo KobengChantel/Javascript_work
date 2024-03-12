@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title> string manipulation</title>
+</head>
+<body>
+  <script>
+
+    // Define a string
+const string = "thIs will be capiTalized for eAch woRd ";
+
+// Define a function to capitalize the first letter of each word in a string
+function wordsCaps(nam) {
+    // Convert the input string to lowercase
+    nam = nam.toLowerCase();
+
+    // Create an empty array to store modified words
+    const tempString = [];
+
+    // Split the string into an array of words
+    let words = nam.split(" ");
+
+    // Iterate over each word in the array
+    words.forEach(word => {
+        // Capitalize the first letter of the word and concatenate it with the rest of the word
+        let temp = word.slice(0, 1).toUpperCase() + word.slice(1);
+        
+        // Push the modified word into the tempString array
+        tempString.push(temp);
+    });
+
+    // Join the modified words into a single string separated by spaces and return it
+    return tempString.join(" ");
+}
+
+// Call the wordsCaps function with the input string and output the result
+console.log(wordsCaps(string));
+
+  </script>
+</body>
+</html>

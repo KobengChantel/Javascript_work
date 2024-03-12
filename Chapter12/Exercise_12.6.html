@@ -1,0 +1,66 @@
+<!doctype html>
+<html>
+<head>
+    <title>Complete JavaScript Course</title>
+</head>
+<body>
+    <script>
+       // Log the current cookies to the console
+console.log(document.cookie);
+
+// Log the value of the cookie named "test1" to the console
+console.log(rCookie("test1"));
+
+// Log the value of the cookie named "test" to the console
+console.log(rCookie("test"));
+
+// Create a new cookie named "test1" with value "new Cookie" that expires in 30 days
+cCookie("test1", "new Cookie", 30);
+
+// Delete the cookie named "test2"
+dCookie("test2");
+
+// Function to create a new cookie
+function cCookie(cName, value, days) {
+    // Check if days parameter is provided
+    if (days) {
+        // Create a new Date object for the current date and time
+        const d = new Date();
+        // Set the expiration date to 'days' days in the future
+        d.setTime(d.getTime() + (days * 24 * 60 * 60 * 1000));
+        // Format the expiration date as UTC string
+        let e = "; expires=" + d.toUTCString();
+        // Set the cookie with name, value, expiration date, and path
+        document.cookie = cName + "=" + value + e + "; path=/";
+    }
+}
+
+// Function to read a cookie by name
+function rCookie(cName) {
+    let cookieValue = false;
+    // Split the cookies string into an array of individual cookies
+    let arr = document.cookie.split("; ");
+    // Loop through each cookie in the array
+    arr.forEach(str => {
+        // Split each cookie into its name and value
+        const cookie = str.split("=");
+        // Check if the cookie name matches the desired name
+        if (cookie[0] == cName) {
+            // If it matches, assign the cookie value to cookieValue
+            cookieValue = cookie[1];
+        }
+    });
+    // Return the value of the cookie, or false if not found
+    return cookieValue;
+}
+
+// Function to delete a cookie by name
+function dCookie(cName) {
+    // Call cCookie function with an empty string value and expiration date set to -1 day
+    cCookie(cName, "", -1);
+}
+
+    </script>
+
+</body>
+</html>

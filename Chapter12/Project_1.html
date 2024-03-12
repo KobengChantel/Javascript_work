@@ -1,0 +1,42 @@
+<!doctype html>
+<html>
+<head>
+    <title>Complete JavaScript Course</title>
+</head>
+<body>
+    <textarea name="txtarea" rows=2 cols=50></textarea> <button>Get Emails</button>
+    <textarea name="txtarea2" rows=2 cols=50></textarea>
+    <script>
+       // Get a reference to the first textarea element with the name 'txtarea'
+const firstArea = document.querySelector("textarea[name='txtarea']");
+// Get a reference to the second textarea element with the name 'txtarea2'
+const secArea = document.querySelector("textarea[name='txtarea2']");
+// Add a click event listener to the button element, calling the lookUp function when clicked
+document.querySelector("button").addEventListener("click", lookUp);
+
+// Function to extract unique email addresses from the first textarea and display them in the second textarea
+function lookUp() {
+    // Get the raw text content from the first textarea
+    const rawTxt = firstArea.value;
+    // Use a regular expression to find all email addresses in the raw text content
+    const eData = rawTxt.match(/([a-zA-Z0-9._-]+@[a-zA-Z0-9._-]+\.[a-zA-Z0-9._-]+)/gi);
+    // Initialize an empty array to hold unique email addresses
+    const holder = [];
+
+    // Loop through each email address found in the raw text content
+    for (let x = 0; x < eData.length; x++) {
+        // Check if the email address is not already in the holder array
+        if (holder.indexOf(eData[x]) == -1) {
+            // If it's not already in the array, add it to the holder array
+            holder.push(eData[x]);
+        }
+    }
+
+    // Set the value of the second textarea to a comma-separated string of unique email addresses
+    secArea.value = holder.join(',');
+}
+
+    </script>
+
+</body>
+</html>

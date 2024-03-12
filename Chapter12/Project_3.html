@@ -1,0 +1,69 @@
+<!doctype html>
+<html>
+<head>
+    <title>Complete JavaScript Course</title>
+</head>
+<body>
+    <span class="val1"></span> <span>+</span> <span class="val2"></span> = <span>
+        <input type="text" name="answer"></span><button>Check</button>
+    <div class="output"></div>
+    <script>
+        // Define the 'app' function as an immediately invoked function expression (IIFE)
+const app = function () {
+    // Object to hold game data
+    const game = {};
+    // Get references to DOM elements
+    const val1 = document.querySelector(".val1"); // Element to display first value
+    const val2 = document.querySelector(".val2"); // Element to display second value
+    const output = document.querySelector(".output"); // Element to display game output
+    const answer = document.querySelector("input"); // Input field for user's answer
+
+    // Function to initialize the application
+    function init() {
+        // Add event listener to the button for checking the answer
+        document.querySelector("button").addEventListener("click", checker);
+        // Load the initial question
+        loadQuestion();
+    }
+
+    // Function to generate a random value within a specified range
+    function ranValue(min, max) {
+        return Math.floor(Math.random() * (max - min + 1) + min);
+    }
+
+    // Function to load a new question
+    function loadQuestion() {
+        // Generate random values for the question
+        game.val1 = ranValue(1, 100);
+        game.val2 = ranValue(1, 100);
+        // Calculate the correct answer
+        game.answer = game.val1 + game.val2;
+        // Display the values in the UI
+        val1.textContent = game.val1;
+        val2.textContent = game.val2;
+    }
+
+    // Function to check the user's answer
+    function checker() {
+        // Determine background color for output based on correctness of the answer
+        let bg = answer.value == game.answer ? "green" : "red";
+        // Append the result to the output element
+        output.innerHTML += `<div style="color:${bg}">${game.val1} + ${game.val2} = ${game.answer} (${answer.value})</div>`;
+        // Clear the answer input field
+        answer.value = "";
+        // Load a new question
+        loadQuestion();
+    }
+
+    // Return the 'init' function to make it accessible outside the 'app' function
+    return {
+        init: init
+    };
+}();
+
+// Add an event listener to run the 'init' function when the DOM content is loaded
+document.addEventListener('DOMContentLoaded', app.init);
+
+    </script>
+</body>
+</html>

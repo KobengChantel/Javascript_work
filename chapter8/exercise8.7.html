@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Output the date with the full month name into the console</title>
+</head>
+<body>
+  
+<script>
+  // Create a new Date object representing a specific future date (April 15, 2024)
+let future = new Date(2024, 3, 15); // Note: Months are 0-based, so 3 represents April
+console.log(future);
+
+// Define an array containing the names of months
+const months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
+
+// Extract the day, month, and year from the future Date object
+let day = future.getDate(); // Get the day of the month (1-31)
+let month = future.getMonth(); // Get the month (0-11)
+let year = future.getFullYear(); // Get the year (four digits)
+
+// Construct a custom date format using the extracted day, month, and year
+let myDate = `${months[month]} ${day} ${year}`; // Note: months[month] to get the month name
+console.log(myDate);
+
+</script>
+
+
+</body>
+</html>

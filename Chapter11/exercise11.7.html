@@ -1,0 +1,61 @@
+<!doctype html>
+<html>
+<head>
+    <title>JS Tester</title>
+</head>
+<body> 
+    <div class="output1">
+    </div>
+ 
+    <input type="text" placeholder="First Name" name="first"><br>
+    <input type="text" placeholder="Last Name" name="last"><br>
+    <script>      
+       // Selecting the output element
+const output = document.querySelector(".output1");
+
+// Selecting the input elements for first and last name
+const in1 = document.querySelector("input[name='first']");
+const in2 = document.querySelector("input[name='last']");
+
+// Adding event listener to the first name input for change event
+in1.addEventListener("change", (e) => {
+    console.log("change"); // Logging message when input value changes
+    updater(in1.value); // Calling the updater function with the input value
+});
+
+// Adding event listener to the first name input for blur event
+in1.addEventListener("blur", (e) => {
+    console.log("blur"); // Logging message when input loses focus
+});
+
+// Adding event listener to the first name input for focus event
+in1.addEventListener("focus", (e) => {
+    console.log("focus"); // Logging message when input gains focus
+});
+
+// Adding event listener to the last name input for change event
+in2.addEventListener("change", (e) => {
+    console.log("change"); // Logging message when input value changes
+    updater(in2.value); // Calling the updater function with the input value
+});
+
+// Adding event listener to the last name input for blur event
+in2.addEventListener("blur", (e) => {
+    console.log("blur"); // Logging message when input loses focus
+});
+
+// Adding event listener to the last name input for focus event
+in2.addEventListener("focus", (e) => {
+    console.log("focus"); // Logging message when input gains focus
+});
+
+// Function to update the output text content
+function updater(str) {
+    output.textContent = str; // Setting the text content of the output element
+}
+
+        
+    </script>
+
+</body>
+</html>

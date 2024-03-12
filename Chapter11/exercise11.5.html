@@ -1,0 +1,83 @@
+<!doctype html>
+<html>
+<head>
+    <title>Exercise 1.5</title>
+</head>
+
+<body>
+<h1>Change the text in a div element on the page. This exercise will demonstrate how 
+    you can get the value from an input field and place it within a page element</h1>
+
+   <!-- Output container -->
+<div class="output"></div>
+
+<!-- Input field for message -->
+<input type="text" name="message" placeholder="Your Message">
+
+<!-- Button 1 -->
+<button class="btn1">Button 1</button>
+
+<!-- Button 2 -->
+<button class="btn2">Button 2</button>
+
+<!-- Button 3 inside a div -->
+<div>
+    <button class="btn3">Log</button>
+</div>
+
+<script>
+    // Selecting the input field for message
+    const myInput = document.querySelector("input[name='message']");
+
+    // Selecting the output container
+    const output = document.querySelector(".output");
+
+    // Selecting Button 1
+    const btn1 = document.querySelector(".btn1");
+
+    // Selecting Button 2
+    const btn2 = document.querySelector(".btn2");
+
+    // Selecting Button 3
+    const btn3 = document.querySelector(".btn3");
+
+    // Array to store log messages
+    const log = [];
+
+    // Event listener for Button 1 and Button 2 clicks
+    btn1.addEventListener("click", tracker);
+    btn2.addEventListener("click", tracker);
+
+    // Event listener for Button 3 click to log messages
+    btn3.addEventListener("click", (e) => {
+        console.log(log); // Logging the log array
+    });
+
+    // Function to track button clicks
+    function tracker(e) {
+        // Displaying the message in the output container
+        output.textContent = myInput.value;
+
+        // Getting the event target (button that was clicked)
+        const ev = e.target;
+
+        // Creating an object to store information about the event
+        const temp = {
+            message: myInput.value, // Message from the input field
+            type: ev.type, // Type of event (click)
+            class: ev.className, // Class of the button
+            tag: ev.tagName // Tag name of the button
+        };
+
+        // Adding the event information object to the log array
+        log.push(temp);
+
+        // Clearing the input field
+        myInput.value = "";
+    }
+</script>
+
+    </script>
+
+</body>
+</html>

@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+  // Variable to track if regular mode is enabled
+let regularMode = false;
+
+// Event handler for the window's click event
+window.onclick = () => { 
+    console.log(regularMode); // Logging the current state of regular mode
+
+    // Checking if regular mode is enabled
+    if (!regularMode) {
+        // Setting body background color to yellow and text color to orange
+        document.body.style.backgroundColor = "yellow";
+        document.body.style.color = "orange";
+        regularMode = true; // Updating regular mode state
+    } else {
+        // Setting body background color to orange and text color to yellow
+        document.body.style.backgroundColor = "orange";
+        document.body.style.color = "yellow";
+        regularMode = false; // Updating regular mode state
+    }
+}
+
+</script>
+</body>
+</html>

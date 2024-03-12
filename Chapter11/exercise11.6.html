@@ -1,0 +1,57 @@
+<!doctype html>
+<html>
+<head>
+    <title>Exercise 1.6</title>
+    <h1>l demonstrate event capturing and the delegation of page elements. 
+        By adding event listeners to the parent and children within the main elemen</h1>
+    <style>
+        .box {
+            width: 200px;
+            height: 100px;
+            border: 1px solid black
+        }
+    </style>
+</head>
+<body> 
+    <div class="container">
+        <div class="box" id="box0">Box #1</div>
+        <div class="box" id="box1">Box #2</div>
+        <div class="box" id="box2">Box #3</div>
+        <div class="box" id="box3">Box #4</div>
+    </div> 
+    <script>      
+     // Selecting the container element with class "container"
+const main = document.querySelector(".container");
+
+// Selecting all elements with class "box"
+const boxes = document.querySelectorAll(".box");
+
+// Adding a capturing event listener to the container (fires before the bubbling phase)
+main.addEventListener("click", (e) => {
+    console.log("4"); // Logging message for the capturing phase
+}, false);
+
+// Adding a bubbling event listener to the container (fires after the capturing phase)
+main.addEventListener("click", (e) => {
+    console.log("1"); // Logging message for the bubbling phase
+}, true);
+
+// Iterating through each box element
+boxes.forEach(ele => {
+    // Adding a bubbling event listener to the box (fires after the capturing phase)
+    ele.addEventListener("click", (e) => {
+        console.log("3"); // Logging message for the bubbling phase
+        console.log(e.target.textContent); // Logging the text content of the clicked box
+    }, false);
+
+    // Adding a capturing event listener to the box (fires before the bubbling phase)
+    ele.addEventListener("click", (e) => {
+        console.log("2"); // Logging message for the capturing phase
+        console.log(e.target.textContent); // Logging the text content of the clicked box
+    }, true);
+});
+
+    </script>
+
+</body>
+</html>

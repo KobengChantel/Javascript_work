@@ -1,0 +1,46 @@
+<!doctype html>
+<html>
+<style>
+    div {
+        background-color: purple;
+        width: 100px;
+        height: 100px;
+        position: absolute;
+    }
+</style>
+<body>
+    <div id="block"></div>
+    <script>
+       // Selecting the block element with id "block"
+const main = document.querySelector("#block");
+
+// Object to store properties related to block movement
+let mover = { speed: 10, dir: 1, pos: 0 };
+
+// Adding event listener to the block for click event
+main.addEventListener("click", moveBlock);
+
+// Function to move the block
+function moveBlock() {
+    let x = 30; // Variable to control the movement speed
+    // Setting up an interval to continuously move the block
+    setInterval(function () {
+        // Checking if the movement has reached the end
+        if (x < 1) {
+            clearInterval(); // Clearing the interval if movement is complete
+        } else {
+            // Checking if the block is at the boundary
+            if (mover.pos > 800 || mover.pos < 0) {
+                mover.dir *= -1; // Reversing the direction if the block hits the boundary
+            }
+            x--; // Decreasing the movement speed
+            mover.pos += x * mover.dir; // Updating the position of the block
+            main.style.left = mover.pos + "px"; // Applying the new position to the block element
+            console.log(mover.pos); // Logging the position to console
+        }
+    }, 2); // Setting the interval duration
+}
+
+    </script>
+</body>
+</html>

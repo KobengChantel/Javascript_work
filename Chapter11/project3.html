@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>MOuse Position Tracker</title>
+    <style>
+        .holder {
+            display: inline-block;
+            width: 300px;
+            height: 300px;
+            border: 1px solid black;
+            padding: 10px;
+        }
+ 
+        .active {
+            background-color: red;
+        }
+    </style>
+</head>
+<body> 
+    <div class="holder">
+        <!-- Output div to display mouse coordinates -->
+        <div id="output"></div>
+    </div>
+    
+    <script>
+        // Selecting the holder element
+        const ele = document.querySelector(".holder");
+    
+        // Event listener for mouseover event
+        ele.addEventListener("mouseover", (e) => {
+            // Adding 'active' class to the target element
+            e.target.classList.add("active");
+        });
+    
+        // Event listener for mouseout event
+        ele.addEventListener("mouseout", (e) => {
+            // Removing 'active' class from the target element
+            e.target.classList.remove("active");
+        });
+    
+        // Event listener for mousemove event
+        ele.addEventListener("mousemove", coordin);
+    
+        // Function to display mouse coordinates
+        function coordin() {
+            // Getting the current mouse coordinates
+            let html = "X:" + event.clientX + " | Y:" + event.clientY;
+    
+            // Updating the content of the output div with the coordinates
+            document.getElementById("output").innerHTML = html;
+        }
+    </script>
+    
+    </script>
+</body>
+</html>

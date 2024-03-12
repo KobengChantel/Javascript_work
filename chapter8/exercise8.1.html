@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>DecodeURIComponent()</title>
+</head>
+<body>
+  <script>
+   // Part 1: Encoding and decoding a URI
+
+// Define a string containing the sentence "How is is going?"
+let str = ["How is is going?"];
+
+// Define a URI string containing "How's%20it%20going%3F", which is the URI-encoded version of the sentence
+let uri = "How's%20it%20going%3F";
+
+// Encode the URI using encodeURIComponent() and store the result in encoded_uri
+let encoded_uri = encodeURIComponent(uri);
+
+// Output the encoded URI to the console
+console.log("Encoded:", encoded_uri);
+
+// Decode the encoded URI using decodeURIComponent() and store the result in decoded_uri
+let decoded_uri = decodeURIComponent(encoded_uri);
+
+// Output the decoded URI to the console
+console.log("Decoded:", decoded_uri);
+
+// Part 2: Encoding a URI using encodeURI()
+
+// Define a URI string containing "http://www.basescripts.com?=Hello World"
+let uri1 =  "http://www.basescripts.com?=Hello World";
+
+// Encode the URI using encodeURI() and store the result in encoded_uri1
+const encoded_uri1 = encodeURI(uri1);
+
+// Output the encoded URI to the console
+console.log("Encoded:", encoded_uri1);
+
+  </script>
+</body>
+</html>

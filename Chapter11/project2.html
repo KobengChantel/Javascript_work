@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Star Rating System</title>
+    <style>
+        .stars ul {
+            list-style-type: none;
+            padding: 0;
+        }
+        .star {
+            font-size: 2em;
+            color: #ddd;
+            display: inline-block;
+        }
+        .orange {
+            color: orange;
+        }
+        .output {
+            background-color: #ddd;
+        }
+    </style>
+</head>
+<body>
+   <!-- List of stars -->
+<ul class="stars">
+    <li class="star">&#10029;</li>
+    <li class="star">&#10029;</li>
+    <li class="star">&#10029;</li>
+    <li class="star">&#10029;</li>
+    <li class="star">&#10029;</li>
+</ul>
+
+<!-- Output container -->
+<div class="output"></div>
+
+<script>
+    // Selecting the stars ul, output container, and all star elements
+    const starsUL = document.querySelector(".stars");
+    const output = document.querySelector(".output");
+    const stars = document.querySelectorAll(".star");
+
+    // Assigning a starValue property to each star element
+    stars.forEach((star, index) => {
+        star.starValue = (index + 1); // Index starts from 0, so adding 1 to get the star rating value
+        star.addEventListener("click", starRate); // Adding click event listener to each star
+    });
+
+    // Function to handle star rating
+    function starRate(e) {
+        // Displaying the rating in the output container
+        output.innerHTML = `You Rated this ${e.target.starValue} stars`;
+
+        // Adding or removing 'orange' class to stars based on the rating
+        stars.forEach((star, index) => {
+            if (index < e.target.starValue) {
+                star.classList.add("orange"); // Adding orange color to stars up to the clicked star
+            } else {
+                star.classList.remove("orange"); // Removing orange color from stars after the clicked star
+            }
+        });
+    }
+</script>
+
+    </script>
+
+</body>
+</html>

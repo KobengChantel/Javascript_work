@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Complete JavaScript Course</title>
+    <style>
+    </style>
+</head>
+<body>
+    <div id="message">Complete JavaScript Course</div>
+
+<!-- Input field and button for adding items -->
+<div>
+    <input type="text" id="addItem"> <!-- Input field to add new items -->
+    <input type="button" id="addNew" value="Add to List"> <!-- Button to add new items -->
+</div>
+
+<!-- Output section for the shopping list -->
+<div id="output">
+    <h1>Shopping List</h1> <!-- Heading for the shopping list -->
+    <ol id="sList"> </ol> <!-- Ordered list to display the items -->
+</div>
+
+<script>
+    // Event listener for the "Add to List" button
+    document.getElementById("addNew").onclick = function () {
+        addOne(); // Call the addOne function when the button is clicked
+    }
+
+    // Function to add a new item to the shopping list
+    function addOne() {
+        var a = document.getElementById("addItem").value; // Get the value from the input field
+        var li = document.createElement("li"); // Create a new list item element
+        li.appendChild(document.createTextNode(a)); // Add the value as text to the list item
+        document.getElementById("sList").appendChild(li); // Append the list item to the ordered list
+    }
+</script>
+
+    </script>
+
+</body>
+</html>

@@ -1,0 +1,61 @@
+<!doctype html>
+<html>
+<head>
+    <title>JS Tester</title>
+    <style>
+        .active {
+            display: block !important;
+        }
+        .myText {
+            display: none;
+        }
+        .title {
+            font-size: 1.5em;
+            background-color: #ddd;
+        }
+    </style>
+</head><div class="container">
+    <!-- Titles -->
+    <div class="title">Title #1</div>
+    <div class="myText">Just be happy</div>
+    <div class="title">Title #2</div>
+    
+    <div class="myText">Nice fight</div>
+    <div class="title">Title #3</div>
+    <div class="myText">Just go get what belongs to u</div>
+
+   
+   
+    
+</div>
+
+<script>
+    // Select all elements with class "title"
+    const menus = document.querySelectorAll(".title");
+
+    // Select all elements with class "myText"
+    const openText = document.querySelectorAll(".myText");
+
+    // Add event listener to each title element
+    menus.forEach((el) => {
+        el.addEventListener("click", (e) => {
+            console.log(el.nextElementSibling); // Log the next sibling of the clicked title element
+            remover(); // Remove "active" class from all text elements
+            el.nextElementSibling.classList.toggle("active"); // Toggle "active" class on the next sibling (text element)
+        })
+    })
+
+    // Function to remove "active" class from all text elements
+    function remover() {
+        openText.forEach((ele) => {
+            ele.classList.remove("active");
+        })
+    }
+</script>
+
+<body>
+   
+    </script>
+
+</body>
+</html>

@@ -1,0 +1,40 @@
+<!doctype html>
+<html>
+<head>
+    <title>JS Tester</title>
+</head>
+<body>
+    <div class="output"></div>
+        <input type="text" name="myNum1">
+        <input type="text" name="myNum2">
+    <script>
+        // Selecting all input elements on the page
+const eles = document.querySelectorAll("input");
+
+// Selecting the output element
+const output = document.querySelector(".output");
+
+// Iterating through each input element
+eles.forEach(el => {
+    // Adding event listener to handle keydown event
+    el.addEventListener("keydown", (e) => {
+        // Checking if the pressed key is a number
+        if (!isNaN(e.key)) {
+            output.textContent += e.key; // Appending the key to the output if it's a number
+        }
+    });
+
+    // Adding event listener to handle keyup event
+    el.addEventListener("keyup", (e) => {
+        console.log(e.key); // Logging the key that was released
+    });
+
+    // Adding event listener to handle paste event
+    el.addEventListener("paste", (e) => {
+        console.log('pasted'); // Logging when paste event occurs
+    });
+});
+
+    </script>
+</body>
+</html>

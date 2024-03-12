@@ -1,0 +1,78 @@
+<!doctype html>
+<html>
+<head>
+    <title>JS Tester</title>
+    <style>
+        .box {
+            width: 100px;
+            height: 100px;
+            border: 1px solid black;
+            background-color: white;
+        }
+        .red {
+            background-color: red;
+        }
+    </style>
+</head>
+<body>
+    <div class="box">1
+        <div id="dragme" draggable="true">
+            Drag Me Please!
+        </div>
+    </div>
+    <div class="box">2</div>
+    <script>
+        // Selecting the draggable element with id "dragme"
+const dragme = document.querySelector("#dragme");
+
+// Adding event listener to handle drag start
+dragme.addEventListener("dragstart", (e) => {
+    // Setting opacity of the draggable element while dragging
+    dragme.style.opacity = .5;
+});
+
+// Adding event listener to handle drag end
+dragme.addEventListener("dragend", (e) => {
+    // Resetting opacity of the draggable element after dragging ends
+    dragme.style.opacity = "";
+});
+
+// Selecting all elements with class "box" which can act as drop zones
+const boxes = document.querySelectorAll(".box");
+
+// Looping through each box element
+boxes.forEach(box => {
+    // Adding event listener to handle drag enter
+    box.addEventListener("dragenter", (e) => {
+        // Adding a class to indicate drag enter state
+        e.target.classList.add('red');
+    });
+
+    // Adding event listener to handle drag over
+    box.addEventListener("dragover", (e) => {
+        e.preventDefault(); // Preventing default behavior of drag over
+    });
+
+    // Adding event listener to handle drag leave
+    box.addEventListener("dragleave", (e) => {
+        // Removing the class when drag leaves the element
+        e.target.classList.remove('red');
+    });
+
+    // Adding event listener to handle drop
+    box.addEventListener("drop", (e) => {
+        e.preventDefault(); // Preventing default behavior of drop
+        console.log("dropped");
+        e.target.appendChild(dragme); // Appending the dragged element to the drop zone
+    });
+});
+
+// Function to handle drag start (currently not used)
+function dragStart(e) {
+    console.log("Started");
+}
+
+    </script>
+
+</body>
+</html>

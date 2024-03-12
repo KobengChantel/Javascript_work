@@ -1,0 +1,52 @@
+<!DOCTYPE html >
+<html>
+
+<div class=“output”>
+<h1>Hello</h1>
+    <div>Test</div>
+    <ul>
+        <li id="one">One</li>
+        <li class="red">Two</li>
+    </ul>
+    <div>Test</div>
+</div>
+
+<script>
+// Select the element with the class "output" and store it in the 'output' variable
+const output = document.querySelector(".output");
+
+// Select the <ul> element within the 'output' element and store it in the 'mainList' variable
+const mainList = output.querySelector("ul");
+
+// Set the id attribute of the 'mainList' element to "mainList"
+mainList.id = "mainList";
+
+// Log the 'mainList' element to the console
+console.log(mainList);
+
+// Select all <div> elements and store them in the 'eles' variable
+const eles = document.querySelectorAll("div");
+
+// Loop through each <div> element
+for (let x = 0; x < eles.length; x++) {
+    // Log the tag name of the current <div> element to the console
+    console.log(eles[x].tagName);
+
+    // Set the id attribute of the current <div> element to "id" followed by its index
+    eles[x].id = "id" + (x + 1);
+
+    // Check if the index of the current <div> element is odd
+    if (x % 2) {
+        // If the index is odd, set the text color of the <div> element to red
+        eles[x].style.color = "red";
+    } else {
+        // If the index is even, set the text color of the <div> element to blue
+        eles[x].style.color = "blue";
+    }
+    // Add comments to explain each part of the code
+}
+
+
+</script>
+
+</html>

@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Experiment with the Math object</title>
+</head>
+<body>
+  
+<script>
+
+// Output the ceiling value of 5.7 using Math.ceil()
+console.log(Math.ceil(5.7));
+
+// Output the floor value of 5.7 using Math.floor()
+console.log(Math.floor(5.7));
+
+// Output the rounded value of 5.7 using Math.round()
+console.log(Math.round(5.7));
+
+// Output a random floating-point number between 0 (inclusive) and 1 (exclusive) using Math.random()
+console.log(Math.random());
+
+// Output a random integer between 0 (inclusive) and 10 (exclusive) using Math.random() and Math.floor()
+console.log(Math.floor(Math.random() * 11)); // 0-10
+
+// Output a random integer between 1 and 10 (inclusive) using Math.random(), Math.floor(), and adjustment
+console.log(Math.floor(Math.random() * 10) + 1); // 1-10
+
+// Output a random integer between 1 and 100 (inclusive) using Math.random(), Math.floor(), and adjustment
+console.log(Math.floor(Math.random() * 100) + 1); // 1-100
+
+// Define a function to generate a random number between a given range (min and max)
+function ranNum(min, max) {
+    return Math.floor(Math.random() * (max - min + 1)) + min;
+}
+
+// Generate and output 100 random numbers between 1 and 100 (inclusive) using the ranNum function
+for (let x = 0; x < 100; x++) {
+    console.log(ranNum(1, 100));
+}
+
+</script>
+
+
+
+
+
+</body>
+</html>
