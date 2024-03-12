@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <h1>PROJECT</h1>
+  <script>
+    // Define an array of allowed passwords
+const allowed = ["1234", "pass", "apple"];
+
+// Function to check if the password is allowed
+function passwordChecker(pass) {
+    // Check if the password is included in the allowed array
+    return allowed.includes(pass);
+}
+
+// Function to simulate a login process with a password
+function login(password) {
+    return new Promise((resolve, reject) => {
+        // Check if the password is allowed
+        if (passwordChecker(password)) {
+            // If allowed, resolve the promise with a status object
+            resolve({
+                status: true
+            });
+        } else {
+            // If not allowed, reject the promise with a status object
+            reject({
+                status: false
+            });
+        }
+    });
+}
+
+// Function to check the password and handle the login process
+function checker(pass) {
+    // Call the login function with the password
+    login(pass)
+        // If the login is successful, log the approval message and the token
+        .then(token => {
+            console.log("Approve:");
+            console.log(token);
+        })
+        // If the login fails, log the rejection message and the status
+        .catch(value => {
+            console.log("Reject:");
+            console.log(value);
+        });
+}
+
+// Call the checker function with different passwords to simulate login attempts
+checker("1234"); // Simulate a login attempt with an allowed password
+checker("wrong"); // Simulate a login attempt with a disallowed password
+
+  </script>
+</body>
+</html>

@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+  // Define a function to greet a user with their full name
+function greet(fullName) {
+    // Log a welcome message with the first and last name extracted from the fullName array
+    console.log(`Welcome, ${fullName[0]} ${fullName[1]}`);
+}
+
+// Define a function to process a user's call and execute a callback function
+function processCall(user, callback) {
+    // Split the user's full name into an array using space as the separator
+    const fullName = user.split(" ");
+    // Call the provided callback function, passing the fullName array as an argument
+    callback(fullName);
+}
+
+// Call the processCall function with a user's full name and the greet function as the callback
+processCall("Laurence Svekis", greet);
+
+  </script>
+</body>
+</html>

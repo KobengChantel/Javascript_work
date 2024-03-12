@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <h1>exercise13.3</h1>
+  <script>
+  // Initialize a counter variable
+let cnt = 0;
+
+// Function to output time after a delay
+function outputTime(val) {
+    return new Promise(resolve => {
+        // Set a timeout of 1 second
+        setTimeout(() => {
+            // Increment counter
+            cnt++;
+            // Resolve the promise with the result
+            resolve(`x value ${val} counter:${cnt}`);
+        }, 1000);
+    });
+}
+
+// Asynchronous function to call outputTime function
+async function aCall(val) {
+    // Log a message indicating the function is ready
+    console.log(`ready ${val} counter:${cnt}`);
+    // Await the outputTime function and log the result
+    const res = await outputTime(val);
+    console.log(res);
+}
+
+// Loop to call aCall function with different values of x
+for (let x = 1; x < 4; x++) {
+    aCall(x);
+}
+
+    </script>
+</body>
+</html>

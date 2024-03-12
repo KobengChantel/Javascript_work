@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    //1
+//     function addOne(val){
+//  return val + 1;
+// }
+// function total(a, b, callback){
+//  const sum = a + b;
+//  return callback(sum);
+// }
+// console.log(total(4, 5, addOne)); // no brackets when passing a function as a argument
+
+//2
+// function checker(val) {
+//  return new Promise((resolve, reject) => {
+//  if (val > 5) {
+//  resolve("Ready");
+//  } else {
+//  reject(new Error("Oh no"));
+//  }
+//  });
+// }
+// checker(5)
+//  .then((data) => {console.log(data); })
+//  .catch((err) => {console.error(err); });
+
+ //3
+//  function checker(val) {
+//  return new Promise((resolve, reject) => {
+//  if (val > 5) {
+//  resolve("Ready");
+//  } else {
+//  reject(new Error("Oh no"));
+//  }
+//  });
+// }
+// checker(5)
+//  .then((data) => {console.log(data); })
+//  .catch((err) => {console.error(err); })
+//  .finally(() => { console.log("done");});
+
+ //4
+ function myFun() {
+  return new Promise((resolve) => {
+    resolve("Hello");
+  });
+  
+
+ 
+}
+myFun().then(
+  (val) => { 
+  console.log(val); 
+},
+ (err) => {
+  conole.log(err); 
+}
+);
+  </script>
+</body>
+</html>

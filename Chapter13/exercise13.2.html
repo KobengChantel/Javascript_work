@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <h1>START COUNTING EXERCISE</h1>
+  <script>
+// Create a new Promise
+const promise = new Promise((res, rej) => {
+  // Resolve the promise with the initial message
+  res("Start Counting");
+})
+// Chain a 'then' handler to the promise
+.then((value) => {
+  // Log the resolved value
+  console.log(value);
+  // Return "one" to be passed to the next 'then' handler
+  return "one";
+})
+// Chain another 'then' handler
+.then((value) => {
+  // Log the value passed from the previous 'then' handler
+  console.log(value);
+  // Return "two" to be passed to the next 'then' handler
+  return "two";
+})
+// Chain another 'then' handler
+.then((value) => {
+  // Log the value passed from the previous 'then' handler
+  console.log(value);
+  // Return "three" to be passed to the next 'then' handler
+  return "three";
+})
+// Chain another 'then' handler
+.then((value) => {
+  // Log the value passed from the previous 'then' handler
+  console.log(value);
+})
+// Chain a 'catch' handler to handle any errors in the promise chain
+.catch((value) => {
+  // Log an error message if there's any error
+  console.log("error", value);
+});
+
+  </script>
+</body>
+</html>
