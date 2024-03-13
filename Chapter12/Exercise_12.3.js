@@ -1,3 +1,5 @@
+///show name
+
 // Define a function named showNames
 function showNames() {
     // Initialize a variable to store the last argument

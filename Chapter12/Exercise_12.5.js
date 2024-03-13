@@ -1,3 +1,5 @@
+//checking if its a number or git a number or !number
+
 // Define a function named test that takes a single parameter val
 function test(val) {
     try {

@@ -18,62 +18,60 @@
     <ul class="output">
     </ul>
     <script>
-      // Log the current cookies to the console
-console.log(document.cookie);
-
-// Log the value of the cookie named "test1" to the console
-console.log(rCookie("test1"));
-
-// Log the value of the cookie named "test" to the console
-console.log(rCookie("test"));
-
-// Create a new cookie named "test1" with value "new Cookie" that expires in 30 days
-cCookie("test1", "new Cookie", 30);
-
-// Delete the cookie named "test2"
-dCookie("test2");
-
-// Function to create a new cookie
-function cCookie(cName, value, days) {
-    // Check if days parameter is provided
-    if (days) {
-        // Create a new Date object for the current date and time
-        const d = new Date();
-        // Set the expiration date to 'days' days in the future
-        d.setTime(d.getTime() + (days * 24 * 60 * 60 * 1000));
-        // Format the expiration date as UTC string
-        let e = "; expires=" + d.toUTCString();
-        // Set the cookie with name, value, expiration date, and path
-        document.cookie = cName + "=" + value + e + "; path=/";
-    }
-}
-
-// Function to read a cookie by name
-function rCookie(cName) {
-    let cookieValue = false;
-    // Split the cookies string into an array of individual cookies
-    let arr = document.cookie.split("; ");
-    // Loop through each cookie in the array
-    arr.forEach(str => {
-        // Split each cookie into its name and value
-        const cookie = str.split("=");
-        // Check if the cookie name matches the desired name
-        if (cookie[0] == cName) {
-            // If it matches, assign the cookie value to cookieValue
-            cookieValue = cookie[1];
+        const userTask = document.querySelector(".main input");
+        const addBtn = document.querySelector(".main button");
+        const output = document.querySelector(".output");
+        const tasks = JSON.parse(localStorage.getItem("tasklist")) || [];
+        addBtn.addEventListener("click", createListItem);
+        if (tasks.length > 0) {
+            tasks.forEach((task) => {
+                genItem(task.val, task.checked);
+            });
         }
-    });
-    // Return the value of the cookie, or false if not found
-    return cookieValue;
-}
-
-// Function to delete a cookie by name
-function dCookie(cName) {
-    // Call cCookie function with an empty string value and expiration date set to -1 day
-    cCookie(cName, "", -1);
-}
-
-        
+        function saveTasks() {
+            localStorage.setItem("tasklist", JSON.stringify(tasks));
+        }
+        function buildTasks() {
+            tasks.length = 0;
+            const curList = output.querySelectorAll("li");
+            curList.forEach((el) => {
+                const tempTask = {
+                    val: el.textContent,
+                    checked: false
+                };
+                if (el.classList.contains("ready")) {
+                    tempTask.checked = true;
+                }
+                tasks.push(tempTask);
+            });
+            saveTasks();
+        }
+        function genItem(val, complete) {
+            const li = document.createElement("li");
+            const temp = document.createTextNode(val);
+            li.appendChild(temp);
+            output.append(li);
+            userTask.value = "";
+            if (complete) {
+                li.classList.add("ready");
+            }
+            li.addEventListener("click", (e) => {
+                li.classList.toggle("ready");
+                buildTasks();
+            });
+            return val;
+        }
+        function createListItem() {
+            const val = userTask.value;
+            if (val.length > 0) {
+                const myObj = {
+                    val: genItem(val, false),
+                    checked: false
+                };
+                tasks.push(myObj);
+                saveTasks();
+            }
+        }
     </script>
 
 </body>
