@@ -7,9 +7,14 @@
 </head>
 <body>
   <h1>PROJECT</h1>
+  <!--Using an array of allowed passwords, this exercise will create an application to check 
+if one of these password string values exists in an array that lists all the accepted 
+passwords. Set a Promise to check if the password is valid, and upon the result either 
+resolve with the status of true or reject with the status of false. Return the check 
+results-->
   <script>
     // Define an array of allowed passwords
-const allowed = ["1234", "pass", "apple"];
+const allowed = ["school", "pass", "trees"];
 
 // Function to check if the password is allowed
 function passwordChecker(pass) {
@@ -52,7 +57,7 @@ function checker(pass) {
 }
 
 // Call the checker function with different passwords to simulate login attempts
-checker("1234"); // Simulate a login attempt with an allowed password
+checker("school"); // Simulate a login attempt with an allowed password
 checker("wrong"); // Simulate a login attempt with a disallowed password
 
   </script>

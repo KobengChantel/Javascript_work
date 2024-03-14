@@ -16,18 +16,18 @@
     <script>
        // Get references to the HTML elements
 const output = document.getElementById("output"); // The element where the output will be displayed
-const findValue = document.getElementById("sText"); // The input field for the text to find
-const replaceValue = document.getElementById("rText"); // The input field for the text to replace
-document.querySelector("button").addEventListener("click", lookUp); // Add event listener to the button for performing the lookup
+const sText = document.getElementById("sText"); // The input field for the text to find
+const rText = document.getElementById("rText"); // The input field for the text to replace
+document.querySelector("button").addEventListener("click", lookUp()); // Add event listener to the button for performing the lookup
 
 // Function to perform the text replacement
 function lookUp() {
     // Get the text content of the output element
     const s = output.textContent;
     // Get the text to replace with from the input field
-    const rt = replaceValue.value;
+    const rt = rText.value;
     // Create a regular expression using the text to find from the input field, with 'gi' flags for global and case-insensitive matching
-    const re = new RegExp(findValue.value, "gi");
+    const re = new RegExp(rt.value, "gi");
     // Check if the text content matches the regular expression
     if (s.match(re)) {
         // If there is a match, replace the matched text with the replacement text
